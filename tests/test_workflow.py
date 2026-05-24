@@ -172,6 +172,31 @@ def test_site_includes_index_and_calendar_html(steps):
     assert "_site/calendar.html" in run, "named URL calendar.html must also be staged"
 
 
+def test_site_stages_every_data_json_consumed_by_picker(steps):
+    """The picker (web/calendar.html) fetches both data/merged.json AND data/teams.json.
+    Both must be copied into _site/data/ so the deployed site can serve them.
+
+    Regression: slice 2.4 wrote the workflow before slice 2.5 added teams.json;
+    the cp list was not updated and the first live deploy 404'd on teams.json.
+    """
+    stage_step = next((s for s in steps if s.get("name") == "Stage site"), None)
+    assert stage_step is not None, "no `Stage site` step found"
+    run = stage_step["run"]
+    # Scan the picker HTML for the literal fetch URLs it consumes
+    picker_path = Path(__file__).resolve().parent.parent / "web" / "calendar.html"
+    picker_text = picker_path.read_text(encoding="utf-8")
+    fetched_data_files = set(re.findall(r"\./data/(\w+\.json)", picker_text))
+    assert fetched_data_files, "picker should fetch at least one data/*.json file"
+    for fname in fetched_data_files:
+        # Allow either an explicit `cp data/{fname}` line OR a glob `cp data/*.json`
+        explicit = f"data/{fname}" in run
+        glob = "data/*.json" in run
+        assert explicit or glob, (
+            f"web/calendar.html fetches data/{fname} but the Stage site step "
+            f"does not copy it into _site/data/ (explicit nor glob)"
+        )
+
+
 def test_workflow_uses_token_from_secrets_only(steps):
     publish_step = None
     for step in steps:

@@ -47,7 +47,7 @@ jobs:
           mkdir -p _site/data _site/ics
           cp web/calendar.html _site/index.html
           cp web/calendar.html _site/calendar.html
-          cp data/merged.json _site/data/
+          cp data/*.json _site/data/
           cp ics/*.ics _site/ics/
 
       - name: Publish to gh-pages
