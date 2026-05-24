@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>FIFA World Cup 2026 — Calendar Picker</title>
+<style>
+:root {
+  --bg: #fdfdfc;
+  --fg: #1a1a1a;
+  --muted: #585858;
+  --border: #d4d4d4;
+  --accent: #0b4f8c;
+  --accent-fg: #ffffff;
+  --accent-disabled: #9aacbe;
+  --card: #ffffff;
+  --error-bg: #fde2e2;
+  --error-fg: #7a1212;
+  --ok-bg: #e6f4ea;
+  --ok-fg: #134d24;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15181c;
+    --fg: #ececec;
+    --muted: #a8a8a8;
+    --border: #34393f;
+    --accent: #4ea3e8;
+    --accent-fg: #0b1620;
+    --accent-disabled: #3a4956;
+    --card: #1d2126;
+    --error-bg: #432021;
+    --error-fg: #f4c1c1;
+    --ok-bg: #1d3527;
+    --ok-fg: #c2e8ce;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px; line-height: 1.45; }
+main { max-width: 760px; margin: 0 auto; padding: 1.25rem 1rem 4rem; }
+h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+h2 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+p.lede { color: var(--muted); margin: 0 0 1.25rem; }
+section.card { background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1rem; margin: 0 0 1rem; }
+button {
+  font: inherit; padding: 0.6rem 1rem; border-radius: 6px;
+  border: 1px solid var(--accent); background: var(--accent); color: var(--accent-fg);
+  cursor: pointer; min-height: 44px;
+}
+button:disabled { background: var(--accent-disabled); border-color: var(--accent-disabled); cursor: not-allowed; }
+button.secondary { background: transparent; color: var(--accent); }
+button.secondary:disabled { color: var(--accent-disabled); border-color: var(--accent-disabled); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.btn-row button { flex: 1 1 240px; }
+details { border: 1px solid var(--border); border-radius: 6px; margin: 0 0 0.5rem;
+  background: var(--card); }
+details > summary { padding: 0.65rem 0.9rem; cursor: pointer; font-weight: 600;
+  list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "+"; display: inline-block; width: 1rem;
+  color: var(--muted); }
+details[open] > summary::before { content: "-"; }
+ul.teams { list-style: none; margin: 0; padding: 0 0.9rem 0.6rem 1.6rem; }
+ul.teams li { padding: 0.25rem 0; }
+ul.teams label { display: flex; align-items: center; gap: 0.6rem; cursor: pointer; }
+ul.teams input[type=checkbox] { width: 20px; height: 20px; }
+.errbox { background: var(--error-bg); color: var(--error-fg); border: 1px solid var(--error-fg);
+  padding: 0.75rem 1rem; border-radius: 6px; margin: 0 0 1rem; }
+.statusbox { background: var(--ok-bg); color: var(--ok-fg); border: 1px solid var(--ok-fg);
+  padding: 0.75rem 1rem; border-radius: 6px; margin: 0.75rem 0; }
+.statusbox.hidden, .errbox.hidden { display: none; }
+.sublist { list-style: none; padding: 0; margin: 0.75rem 0 0; }
+.sublist li { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0;
+  flex-wrap: wrap; }
+.sublist a { color: var(--accent); word-break: break-all; }
+.sublist button { padding: 0.35rem 0.7rem; min-height: 34px; font-size: 0.9rem; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.toolbar button { flex: 0 0 auto; padding: 0.4rem 0.75rem; min-height: 36px;
+  font-size: 0.9rem; background: transparent; color: var(--accent); }
+@media (max-width: 480px) {
+  main { padding: 1rem 0.75rem 5rem; }
+  h1 { font-size: 1.25rem; }
+  .btn-row button { flex: 1 1 100%; }
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>FIFA World Cup 2026 — Calendar Picker</h1>
+  <p class="lede">Pick teams and add their matches to your calendar. Kickoff times are in Europe/Copenhagen.</p>
+
+  <div id="error-box" class="errbox hidden" role="alert"></div>
+
+  <section class="card" id="whole-tournament">
+    <h2>Whole tournament (104 matches)</h2>
+    <p class="muted">Every match, including knockout placeholders. Updates daily.</p>
+    <div class="btn-row">
+      <button id="download-all" type="button">Download all 104 matches</button>
+      <a id="subscribe-all" href="webcal://placeholder/ics/all.ics" role="button"
+         style="display:inline-flex;align-items:center;justify-content:center;padding:0.6rem 1rem;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-fg);text-decoration:none;flex:1 1 240px;min-height:44px;">
+        Subscribe to all 104 matches
+      </a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Pick teams by group</h2>
+    <div class="toolbar">
+      <button type="button" id="expand-all" class="secondary">Expand all</button>
+      <button type="button" id="collapse-all" class="secondary">Collapse all</button>
+      <button type="button" id="clear-selection" class="secondary">Clear selection</button>
+    </div>
+    <div id="groups" aria-live="polite">
+      <p class="muted">Loading teams...</p>
+    </div>
+  </section>
+
+  <section class="card" id="actions">
+    <h2>Selected teams</h2>
+    <p class="muted" id="selection-summary">No teams selected.</p>
+    <div class="btn-row">
+      <button id="download-selected" type="button" disabled>Download .ics for selected teams</button>
+      <button id="subscribe-selected" type="button" disabled>Subscribe (webcal://) for selected teams</button>
+    </div>
+    <div id="status-box" class="statusbox hidden" role="status"></div>
+    <ul id="subscribe-list" class="sublist"></ul>
+  </section>
+
+  <p class="muted" style="margin-top:2rem;font-size:0.85rem;">
+    Source data refreshes daily. Subscriptions in Google Calendar poll every few hours.
+  </p>
+</main>
+
+<script>
+"use strict";
+
+const VTIMEZONE_BLOCK =
+  "BEGIN:VTIMEZONE\r\n" +
+  "TZID:Europe/Copenhagen\r\n" +
+  "BEGIN:STANDARD\r\n" +
+  "DTSTART:19701025T030000\r\n" +
+  "TZOFFSETFROM:+0200\r\n" +
+  "TZOFFSETTO:+0100\r\n" +
+  "TZNAME:CET\r\n" +
+  "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU\r\n" +
+  "END:STANDARD\r\n" +
+  "BEGIN:DAYLIGHT\r\n" +
+  "DTSTART:19700329T020000\r\n" +
+  "TZOFFSETFROM:+0100\r\n" +
+  "TZOFFSETTO:+0200\r\n" +
+  "TZNAME:CEST\r\n" +
+  "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU\r\n" +
+  "END:DAYLIGHT\r\n" +
+  "END:VTIMEZONE\r\n";
+
+const PRODID = "-//Vodkadav//calendarInport//EN";
+
+const els = {
+  err: document.getElementById("error-box"),
+  groups: document.getElementById("groups"),
+  selectionSummary: document.getElementById("selection-summary"),
+  downloadAll: document.getElementById("download-all"),
+  subscribeAll: document.getElementById("subscribe-all"),
+  downloadSelected: document.getElementById("download-selected"),
+  subscribeSelected: document.getElementById("subscribe-selected"),
+  statusBox: document.getElementById("status-box"),
+  subscribeList: document.getElementById("subscribe-list"),
+  expandAll: document.getElementById("expand-all"),
+  collapseAll: document.getElementById("collapse-all"),
+  clearSelection: document.getElementById("clear-selection"),
+};
+
+const state = {
+  teams: [],
+  matches: [],
+  loaded: false,
+};
+
+function showError(msg) {
+  els.err.textContent = msg;
+  els.err.classList.remove("hidden");
+}
+
+function showStatus(msg) {
+  els.statusBox.textContent = msg;
+  els.statusBox.classList.remove("hidden");
+}
+
+function clearStatus() {
+  els.statusBox.textContent = "";
+  els.statusBox.classList.add("hidden");
+}
+
+function isFilePreview() {
+  return location.protocol === "file:";
+}
+
+function dirOf(pathname) {
+  const i = pathname.lastIndexOf("/");
+  return i >= 0 ? pathname.slice(0, i) : "";
+}
+
+function webcalUrlFor(relativeIcsPath) {
+  if (isFilePreview()) {
+    return null;
+  }
+  return "webcal://" + location.host + dirOf(location.pathname) + "/" + relativeIcsPath;
+}
+
+function setSubscribeAllHref() {
+  const u = webcalUrlFor("ics/all.ics");
+  if (u) {
+    els.subscribeAll.setAttribute("href", u);
+  } else {
+    els.subscribeAll.setAttribute("href", "ics/all.ics");
+    els.subscribeAll.title = "Live webcal:// URL resolves once published. Showing relative path.";
+  }
+}
+
+async function loadData() {
+  try {
+    const [mergedRes, teamsRes] = await Promise.all([
+      fetch("./data/merged.json"),
+      fetch("./data/teams.json"),
+    ]);
+    if (!mergedRes.ok) throw new Error("merged.json HTTP " + mergedRes.status);
+    if (!teamsRes.ok) throw new Error("teams.json HTTP " + teamsRes.status);
+    const merged = await mergedRes.json();
+    const teams = await teamsRes.json();
+    state.matches = merged.matches || [];
+    state.teams = teams;
+    state.loaded = true;
+    renderGroups();
+    setSubscribeAllHref();
+  } catch (e) {
+    showError("Could not load match data — try refreshing in a few hours. (" + e.message + ")");
+    els.downloadAll.disabled = true;
+    els.downloadSelected.disabled = true;
+    els.subscribeSelected.disabled = true;
+    els.subscribeAll.setAttribute("aria-disabled", "true");
+    els.subscribeAll.style.pointerEvents = "none";
+    els.subscribeAll.style.opacity = "0.55";
+  }
+}
+
+function renderGroups() {
+  const byGroup = {};
+  for (const t of state.teams) {
+    if (!byGroup[t.group]) byGroup[t.group] = [];
+    byGroup[t.group].push(t);
+  }
+  const groupLetters = Object.keys(byGroup).sort();
+  const frag = document.createDocumentFragment();
+  for (const g of groupLetters) {
+    const det = document.createElement("details");
+    det.dataset.group = g;
+    const sum = document.createElement("summary");
+    sum.textContent = "Group " + g + " (" + byGroup[g].length + " teams)";
+    det.appendChild(sum);
+    const ul = document.createElement("ul");
+    ul.className = "teams";
+    for (const t of byGroup[g]) {
+      const li = document.createElement("li");
+      const label = document.createElement("label");
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.value = t.slug;
+      cb.dataset.name = t.name;
+      cb.addEventListener("change", updateSelectionUI);
+      const span = document.createElement("span");
+      span.textContent = t.name;
+      label.appendChild(cb);
+      label.appendChild(span);
+      li.appendChild(label);
+      ul.appendChild(li);
+    }
+    det.appendChild(ul);
+    frag.appendChild(det);
+  }
+  els.groups.innerHTML = "";
+  els.groups.appendChild(frag);
+  updateSelectionUI();
+}
+
+function selectedTeams() {
+  const boxes = els.groups.querySelectorAll("input[type=checkbox]:checked");
+  return Array.from(boxes).map((b) => ({ slug: b.value, name: b.dataset.name }));
+}
+
+function updateSelectionUI() {
+  const sel = selectedTeams();
+  const n = sel.length;
+  if (n === 0) {
+    els.selectionSummary.textContent = "No teams selected.";
+  } else if (n === 1) {
+    els.selectionSummary.textContent = "1 team selected: " + sel[0].name;
+  } else {
+    els.selectionSummary.textContent = n + " teams selected.";
+  }
+  els.downloadSelected.disabled = n === 0;
+  els.subscribeSelected.disabled = n === 0;
+}
+
+function escapeIcsText(s) {
+  return String(s)
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;");
+}
+
+function extractVevents(icsText) {
+  const out = [];
+  const re = /BEGIN:VEVENT\r?\n[\s\S]*?END:VEVENT\r?\n/g;
+  let m;
+  while ((m = re.exec(icsText)) !== null) {
+    out.push(m[0]);
+  }
+  return out;
+}
+
+function uidOf(veventBlock) {
+  const m = /\r?\nUID:([^\r\n]+)/.exec(veventBlock);
+  return m ? m[1] : null;
+}
+
+function nowDtstamp() {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) +
+    "T" + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+}
+
+function wrapVcalendar(vevents, calName) {
+  const head =
+    "BEGIN:VCALENDAR\r\n" +
+    "VERSION:2.0\r\n" +
+    "PRODID:" + PRODID + "\r\n" +
+    "CALSCALE:GREGORIAN\r\n" +
+    "METHOD:PUBLISH\r\n" +
+    "X-WR-CALNAME:" + escapeIcsText(calName) + "\r\n" +
+    "X-WR-TIMEZONE:Europe/Copenhagen\r\n" +
+    VTIMEZONE_BLOCK;
+  return head + vevents.join("") + "END:VCALENDAR\r\n";
+}
+
+async function fetchTeamVevents(slug) {
+  const res = await fetch("ics/" + slug + ".ics");
+  if (!res.ok) throw new Error("Failed to fetch ics/" + slug + ".ics (HTTP " + res.status + ")");
+  const text = await res.text();
+  return extractVevents(text);
+}
+
+function triggerDownload(filename, text) {
+  const blob = new Blob([text], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+async function downloadAllHandler() {
+  clearStatus();
+  els.subscribeList.innerHTML = "";
+  try {
+    const res = await fetch("ics/all.ics");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const text = await res.text();
+    triggerDownload("worldcup-2026.ics", text);
+    showStatus("Downloaded 104 matches (whole tournament).");
+  } catch (e) {
+    showError("Could not download whole-tournament .ics: " + e.message);
+  }
+}
+
+async function downloadSelectedHandler() {
+  clearStatus();
+  els.subscribeList.innerHTML = "";
+  const sel = selectedTeams();
+  if (sel.length === 0) return;
+  try {
+    const seen = new Set();
+    const uniqueVevents = [];
+    for (const t of sel) {
+      const blocks = await fetchTeamVevents(t.slug);
+      for (const b of blocks) {
+        const uid = uidOf(b);
+        if (uid && !seen.has(uid)) {
+          seen.add(uid);
+          uniqueVevents.push(b);
+        }
+      }
+    }
+    const calName = "FIFA World Cup 2026 — Selected teams";
+    const ics = wrapVcalendar(uniqueVevents, calName);
+    triggerDownload("worldcup-2026.ics", ics);
+    showStatus("Downloaded " + uniqueVevents.length + " matches across " + sel.length + " team" + (sel.length === 1 ? "" : "s") + ".");
+  } catch (e) {
+    showError("Could not build .ics: " + e.message);
+  }
+}
+
+function subscribeSelectedHandler() {
+  clearStatus();
+  els.subscribeList.innerHTML = "";
+  const sel = selectedTeams();
+  if (sel.length === 0) return;
+  const frag = document.createDocumentFragment();
+  const filePreview = isFilePreview();
+  for (const t of sel) {
+    const li = document.createElement("li");
+    const live = webcalUrlFor("ics/" + t.slug + ".ics");
+    const shown = live || ("ics/" + t.slug + ".ics");
+    const a = document.createElement("a");
+    a.href = shown;
+    a.textContent = "Subscribe to " + t.name;
+    li.appendChild(a);
+    const copyBtn = document.createElement("button");
+    copyBtn.type = "button";
+    copyBtn.textContent = "Copy URL";
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(shown);
+        const prev = copyBtn.textContent;
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => { copyBtn.textContent = prev; }, 1500);
+      } catch (e) {
+        copyBtn.textContent = "Copy failed";
+      }
+    });
+    li.appendChild(copyBtn);
+    if (filePreview) {
+      const note = document.createElement("span");
+      note.className = "muted";
+      note.textContent = "(live URL will resolve once published)";
+      li.appendChild(note);
+    }
+    frag.appendChild(li);
+  }
+  els.subscribeList.appendChild(frag);
+  showStatus("Subscription links generated for " + sel.length + " team" + (sel.length === 1 ? "" : "s") + ". Open each link to add it to Google Calendar.");
+}
+
+function setAllDetails(open) {
+  const details = els.groups.querySelectorAll("details");
+  details.forEach((d) => { d.open = open; });
+}
+
+function clearAllCheckboxes() {
+  const boxes = els.groups.querySelectorAll("input[type=checkbox]");
+  boxes.forEach((b) => { b.checked = false; });
+  updateSelectionUI();
+}
+
+els.downloadAll.addEventListener("click", downloadAllHandler);
+els.downloadSelected.addEventListener("click", downloadSelectedHandler);
+els.subscribeSelected.addEventListener("click", subscribeSelectedHandler);
+els.expandAll.addEventListener("click", () => setAllDetails(true));
+els.collapseAll.addEventListener("click", () => setAllDetails(false));
+els.clearSelection.addEventListener("click", clearAllCheckboxes);
+
+loadData();
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.env
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Orchestrator plan docs (ephemeral)
+.claude/
+
+# Generated artifacts checked in only on gh-pages branch
+# (kept tracked on main so contributors can run scripts locally)
+# - leave data/ and ics/ tracked
+
+# GH Actions build artifact (staged for gh-pages publish only)
+_site/

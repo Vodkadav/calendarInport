@@ -1,0 +1,69 @@
+{
+  "name": "World Cup 2026",
+  "matches": [
+    {
+      "round": "Matchday 1",
+      "num": 1,
+      "date": "2026-06-11",
+      "time": "13:00 UTC-6",
+      "team1": "Mexico",
+      "team2": "South Africa",
+      "group": "Group A",
+      "ground": "Mexico City"
+    },
+    {
+      "round": "Matchday 1",
+      "num": 2,
+      "date": "2026-06-12",
+      "time": "13:00 UTC-4",
+      "team1": "USA",
+      "team2": "Brazil",
+      "group": "Group B",
+      "ground": "New York/New Jersey (East Rutherford)"
+    },
+    {
+      "round": "Matchday 1",
+      "num": 3,
+      "date": "2026-06-12",
+      "time": "13:00 UTC-7",
+      "team1": "Canada",
+      "team2": "Germany",
+      "group": "Group C",
+      "ground": "Los Angeles (Inglewood)"
+    },
+    {
+      "round": "Round of 32",
+      "num": 73,
+      "date": "2026-06-28",
+      "time": "12:00 UTC-7",
+      "team1": "2A",
+      "team2": "2B",
+      "ground": "Los Angeles (Inglewood)"
+    },
+    {
+      "round": "Round of 32",
+      "num": 74,
+      "date": "2026-06-29",
+      "time": "16:30 UTC-4",
+      "team1": "1E",
+      "team2": "3A/B/C/D/F",
+      "ground": "Boston (Foxborough)"
+    },
+    {
+      "round": "Match for third place",
+      "date": "2026-07-18",
+      "time": "17:00 UTC-4",
+      "team1": "L101",
+      "team2": "L102",
+      "ground": "Miami (Miami Gardens)"
+    },
+    {
+      "round": "Final",
+      "date": "2026-07-19",
+      "time": "15:00 UTC-4",
+      "team1": "W101",
+      "team2": "W102",
+      "ground": "New York/New Jersey (East Rutherford)"
+    }
+  ]
+}
