@@ -102,11 +102,23 @@ ul.teams input[type=checkbox] { width: 20px; height: 20px; }
     <h2>Whole tournament (104 matches)</h2>
     <p class="muted">Every match, including knockout placeholders. Updates daily.</p>
     <div class="btn-row">
-      <button id="download-all" type="button">Download all 104 matches</button>
       <a id="subscribe-all" href="webcal://placeholder/ics/all.ics" role="button"
          style="display:inline-flex;align-items:center;justify-content:center;padding:0.6rem 1rem;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-fg);text-decoration:none;flex:1 1 240px;min-height:44px;">
         Subscribe to all 104 matches
       </a>
+      <button id="download-all" type="button" class="secondary">Download all 104 matches</button>
+    </div>
+  </section>
+
+  <section class="card" id="favourites-preset">
+    <h2>Favourites preset (11 teams)</h2>
+    <p class="muted">A curated combined calendar — one subscribe link, one calendar in your sidebar. Teams: Mexico, England, Canada, USA, Spain, Germany, France, Brazil, Belgium, Argentina, Portugal. Auto-updates as the knockout bracket fills in.</p>
+    <div class="btn-row">
+      <a id="subscribe-favourites" href="webcal://placeholder/ics/favourites.ics" role="button"
+         style="display:inline-flex;align-items:center;justify-content:center;padding:0.6rem 1rem;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-fg);text-decoration:none;flex:1 1 240px;min-height:44px;">
+        Subscribe to Favourites
+      </a>
+      <button id="download-favourites" type="button" class="secondary">Download Favourites .ics</button>
     </div>
   </section>
 
@@ -174,6 +186,8 @@ const els = {
   selectionSummary: document.getElementById("selection-summary"),
   downloadAll: document.getElementById("download-all"),
   subscribeAll: document.getElementById("subscribe-all"),
+  subscribeFavourites: document.getElementById("subscribe-favourites"),
+  downloadFavourites: document.getElementById("download-favourites"),
   downloadSelected: document.getElementById("download-selected"),
   subscribeSelected: document.getElementById("subscribe-selected"),
   statusBox: document.getElementById("status-box"),
@@ -230,6 +244,16 @@ function setSubscribeAllHref() {
   }
 }
 
+function setSubscribeFavouritesHref() {
+  const u = webcalUrlFor("ics/favourites.ics");
+  if (u) {
+    els.subscribeFavourites.setAttribute("href", u);
+  } else {
+    els.subscribeFavourites.setAttribute("href", "ics/favourites.ics");
+    els.subscribeFavourites.title = "Live webcal:// URL resolves once published. Showing relative path.";
+  }
+}
+
 async function loadData() {
   try {
     const [mergedRes, teamsRes] = await Promise.all([
@@ -245,6 +269,7 @@ async function loadData() {
     state.loaded = true;
     renderGroups();
     setSubscribeAllHref();
+    setSubscribeFavouritesHref();
   } catch (e) {
     showError("Could not load match data — try refreshing in a few hours. (" + e.message + ")");
     els.downloadAll.disabled = true;
@@ -253,6 +278,10 @@ async function loadData() {
     els.subscribeAll.setAttribute("aria-disabled", "true");
     els.subscribeAll.style.pointerEvents = "none";
     els.subscribeAll.style.opacity = "0.55";
+    els.subscribeFavourites.setAttribute("aria-disabled", "true");
+    els.subscribeFavourites.style.pointerEvents = "none";
+    els.subscribeFavourites.style.opacity = "0.55";
+    els.downloadFavourites.disabled = true;
   }
 }
 
@@ -390,6 +419,20 @@ async function downloadAllHandler() {
   }
 }
 
+async function downloadFavouritesHandler() {
+  clearStatus();
+  els.subscribeList.innerHTML = "";
+  try {
+    const res = await fetch("ics/favourites.ics");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const text = await res.text();
+    triggerDownload("worldcup-2026-favourites.ics", text);
+    showStatus("Downloaded the Favourites preset.");
+  } catch (e) {
+    showError("Could not download favourites.ics: " + e.message);
+  }
+}
+
 async function downloadSelectedHandler() {
   clearStatus();
   els.subscribeList.innerHTML = "";
@@ -470,6 +513,7 @@ function clearAllCheckboxes() {
 }
 
 els.downloadAll.addEventListener("click", downloadAllHandler);
+els.downloadFavourites.addEventListener("click", downloadFavouritesHandler);
 els.downloadSelected.addEventListener("click", downloadSelectedHandler);
 els.subscribeSelected.addEventListener("click", subscribeSelectedHandler);
 els.expandAll.addEventListener("click", () => setAllDetails(true));

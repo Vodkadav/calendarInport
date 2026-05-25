@@ -379,6 +379,29 @@ def test_partner_section_addresses_download_propagation() -> None:
     )
 
 
+def test_favourites_preset_section_documented() -> None:
+    """README must document the curated favourites preset: section heading,
+    every team in the list, and the URL filename."""
+    body = _read()
+    # Heading — must live under '## How to use it' as a subsection.
+    assert "### Favourites preset" in body, (
+        "missing '### Favourites preset' subheading"
+    )
+    # Every team in the curated list must be mentioned in the README.
+    favourite_teams = [
+        "Mexico", "England", "Canada", "USA", "Spain", "Germany",
+        "France", "Brazil", "Belgium", "Argentina", "Portugal",
+    ]
+    for team in favourite_teams:
+        assert team in body, (
+            f"README missing favourite team: {team!r}"
+        )
+    # The .ics filename must appear so users know where the file lives.
+    assert "favourites.ics" in body, (
+        "README must reference 'favourites.ics' so users can find the URL"
+    )
+
+
 def test_selected_teams_subscribe_workflow_documented() -> None:
     """The Subscribe section must walk through: tick teams → click Subscribe →
     one link per team → subscribe each → calendars appear in sidebar."""

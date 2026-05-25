@@ -493,8 +493,9 @@ def test_teams_json_emitted_with_all_qualified_teams(tmp_path, monkeypatch) -> N
     assert isinstance(teams, list)
 
     ics_files = list((tmp_path / "ics").glob("*.ics"))
-    # Subtract all.ics from the count of per-team files.
-    per_team_count = len([p for p in ics_files if p.name != "all.ics"])
+    # Subtract synthetic files (all.ics, favourites.ics preset) from the per-team count.
+    synthetic = {"all.ics", "favourites.ics"}
+    per_team_count = len([p for p in ics_files if p.name not in synthetic])
     assert len(teams) == per_team_count
     assert per_team_count > 0
 
@@ -527,3 +528,104 @@ def test_teams_json_records_have_name_slug_group(tmp_path, monkeypatch) -> None:
         assert generate.slugify(rec["name"]) == rec["slug"], rec
         assert rec["group"] in valid_groups, rec
         assert len(rec["group"]) == 1
+
+
+# ---------------------------------------------------------------------------
+# Favourites preset (curated one-click combined subscription)
+# ---------------------------------------------------------------------------
+
+
+def test_favourites_constant_is_the_11_specified_teams() -> None:
+    """Lock the curated list. Changing it requires touching this assertion
+    deliberately so an accidental edit can't silently drift the user-facing
+    promise."""
+    assert generate.FAVOURITES == [
+        "Mexico", "England", "Canada", "USA", "Spain", "Germany",
+        "France", "Brazil", "Belgium", "Argentina", "Portugal",
+    ]
+
+
+def test_favourites_calendar_filters_to_favourites_only() -> None:
+    favourite = _match()  # Mexico vs South Africa — Mexico in FAVOURITES
+    irrelevant = _match(
+        id=2, team1="South Korea", team2="Czech Republic",
+        team1_da="Sydkorea", team2_da="Tjekkiet",
+    )
+    out = generate.build_favourites_calendar(
+        [favourite, irrelevant], BUILD_DTSTAMP, SEQ,
+    )
+    cal = Calendar.from_ical(out)
+    vevents = [c for c in cal.subcomponents if c.name == "VEVENT"]
+    assert len(vevents) == 1, (
+        f"expected 1 VEVENT (Mexico's only); got {len(vevents)}"
+    )
+    assert str(vevents[0]["SUMMARY"]) == "Mexico vs South Africa"
+
+
+def test_favourites_calendar_dedups_match_with_two_favourites() -> None:
+    """If two favourites meet (e.g. Mexico vs France), the event appears
+    exactly once."""
+    match = _match(team1="Mexico", team2="France", team2_da="Frankrig")
+    out = generate.build_favourites_calendar([match], BUILD_DTSTAMP, SEQ)
+    cal = Calendar.from_ical(out)
+    vevents = [c for c in cal.subcomponents if c.name == "VEVENT"]
+    assert len(vevents) == 1
+
+
+def test_favourites_calendar_excludes_unresolved_knockouts() -> None:
+    """Knockout matches whose team1/team2 are None (still tokens) must be
+    excluded. They join the calendar only once a favourite has been
+    resolved into a slot — which the next daily refresh handles."""
+    out = generate.build_favourites_calendar(
+        [_r32_unresolved(), _final_unresolved()],
+        BUILD_DTSTAMP, SEQ,
+    )
+    cal = Calendar.from_ical(out)
+    vevents = [c for c in cal.subcomponents if c.name == "VEVENT"]
+    assert vevents == []
+
+
+def test_favourites_calendar_x_wr_calname() -> None:
+    out = generate.build_favourites_calendar([_match()], BUILD_DTSTAMP, SEQ)
+    cal = Calendar.from_ical(out)
+    assert str(cal["X-WR-CALNAME"]) == "FIFA World Cup 2026 — Favourites"
+
+
+def test_favourites_calendar_uses_canonical_vtimezone() -> None:
+    """Same VTIMEZONE block as all.ics + per-team .ics — must not drift."""
+    out = generate.build_favourites_calendar([_match()], BUILD_DTSTAMP, SEQ)
+    assert CANONICAL_VTIMEZONE in out
+
+
+def test_main_emits_favourites_ics(tmp_path, monkeypatch) -> None:
+    """`generate.main()` writes ics/favourites.ics with ≥33 VEVENTs (11
+    favourites × 3 group-stage matches; all 11 are in different groups,
+    so no intra-favourite group-stage clash to dedup)."""
+    (tmp_path / "data").mkdir()
+    (tmp_path / "ics").mkdir()
+    (tmp_path / "scripts").mkdir()
+    real_merged = json.loads(MERGED_JSON.read_text(encoding="utf-8"))
+    (tmp_path / "data" / "merged.json").write_text(
+        json.dumps(real_merged), encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        generate, "__file__",
+        str(tmp_path / "scripts" / "generate.py"),
+    )
+    rc = generate.main([])
+    assert rc == 0
+
+    fav_path = tmp_path / "ics" / "favourites.ics"
+    assert fav_path.exists(), "ics/favourites.ics was not emitted by main()"
+    cal = Calendar.from_ical(fav_path.read_text(encoding="utf-8"))
+    vevents = [c for c in cal.subcomponents if c.name == "VEVENT"]
+    assert len(vevents) >= 33, (
+        f"expected ≥33 VEVENTs (11 × 3 group matches); got {len(vevents)}"
+    )
+    # Every VEVENT in the file must mention at least one favourite team in
+    # its SUMMARY (resolved matches only — unresolved knockouts excluded).
+    for v in vevents:
+        summary = str(v["SUMMARY"])
+        assert any(team in summary for team in generate.FAVOURITES), (
+            f"VEVENT SUMMARY {summary!r} has no favourite team"
+        )

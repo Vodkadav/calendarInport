@@ -76,6 +76,19 @@ EPOCH_DATE = datetime(1970, 1, 1, tzinfo=timezone.utc).date()
 
 
 # ---------------------------------------------------------------------------
+# Curated "Favourites" preset — single combined .ics for one-click subscribe.
+# Stable across the tournament; knockout entries appear as their teams resolve.
+# ---------------------------------------------------------------------------
+
+FAVOURITES = [
+    "Mexico", "England", "Canada", "USA", "Spain", "Germany",
+    "France", "Brazil", "Belgium", "Argentina", "Portugal",
+]
+FAVOURITES_SLUG = "favourites"
+FAVOURITES_CAL_NAME = "FIFA World Cup 2026 — Favourites"
+
+
+# ---------------------------------------------------------------------------
 # Slug
 # ---------------------------------------------------------------------------
 
@@ -256,6 +269,25 @@ def build_per_team_calendars(
     return out
 
 
+def build_favourites_calendar(
+    matches: list[dict[str, Any]],
+    build_dtstamp: str,
+    sequence: int,
+) -> str:
+    """Build a single VCALENDAR for the FAVOURITES preset.
+
+    Includes a match iff *resolved* team1 or team2 is in FAVOURITES. Unresolved
+    knockouts (team1/team2 None) are excluded — they enter the calendar on the
+    next daily refresh once a favourite team is resolved into one of the slots.
+    """
+    favourites = set(FAVOURITES)
+    selected = [
+        m for m in matches
+        if m.get("team1") in favourites or m.get("team2") in favourites
+    ]
+    return build_calendar(selected, FAVOURITES_CAL_NAME, build_dtstamp, sequence)
+
+
 def build_teams_index(matches: list[dict[str, Any]]) -> list[dict[str, str]]:
     """Return [{name, slug, group}] sorted by name for every team that gets a per-team .ics.
 
@@ -337,6 +369,10 @@ def main(argv: list[str] | None = None) -> int:
     for slug, ics in per_team.items():
         (ics_dir / f"{slug}.ics").write_bytes(ics.encode("utf-8"))
     log.info("wrote %d per-team .ics files", len(per_team))
+
+    favourites_ics = build_favourites_calendar(matches, build_dtstamp, sequence)
+    (ics_dir / f"{FAVOURITES_SLUG}.ics").write_bytes(favourites_ics.encode("utf-8"))
+    log.info("wrote ics/%s.ics (favourites preset)", FAVOURITES_SLUG)
 
     teams_index = build_teams_index(matches)
     (data_dir / "teams.json").write_text(

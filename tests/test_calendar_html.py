@@ -385,3 +385,46 @@ def test_subscribe_caption_id_stable() -> None:
     assert soup.find(id="download-selected-caption") is not None, (
         "missing #download-selected-caption"
     )
+
+
+# ---------------------------------------------------------------------------
+# Favourites preset card (curated one-click combined subscription)
+# ---------------------------------------------------------------------------
+
+
+FAVOURITE_TEAM_NAMES = [
+    "Mexico", "England", "Canada", "USA", "Spain", "Germany",
+    "France", "Brazil", "Belgium", "Argentina", "Portugal",
+]
+
+
+def test_favourites_card_has_stable_action_ids() -> None:
+    """The Favourites card exposes #subscribe-favourites and
+    #download-favourites — stable IDs so JS + future tests can reach
+    them without DOM-traversal fragility."""
+    soup = _soup()
+    assert soup.find(id="subscribe-favourites") is not None, (
+        "missing #subscribe-favourites"
+    )
+    assert soup.find(id="download-favourites") is not None, (
+        "missing #download-favourites"
+    )
+
+
+def test_favourites_card_lists_all_11_team_names() -> None:
+    """The card's visible text must include every team in the preset so
+    a friend can verify the contents before subscribing."""
+    text = _read_html()
+    for team in FAVOURITE_TEAM_NAMES:
+        assert team in text, (
+            f"Favourites card missing team name: {team!r}"
+        )
+
+
+def test_favourites_card_references_favourites_ics() -> None:
+    """The subscribe + download paths must point at ics/favourites.ics
+    (either as a literal href or as a JS interpolation argument)."""
+    text = _read_html()
+    assert "favourites.ics" in text, (
+        "calendar.html does not reference 'favourites.ics' anywhere"
+    )

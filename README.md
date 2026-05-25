@@ -38,6 +38,19 @@ If you want a **single calendar entry** in your sidebar rather than one per team
 
 **Important:** the published calendar auto-refreshes every few hours on our side, so when (for example) "Winner Group A" gets replaced with a real team name after the group stage ends, your subscribed calendar updates automatically. You do nothing.
 
+### Favourites preset
+
+A curated, pre-built combined calendar. One subscribe link, one calendar in your sidebar — covering 11 teams: **Mexico, England, Canada, USA, Spain, Germany, France, Brazil, Belgium, Argentina, Portugal**. Auto-updates as the knockout bracket fills in, the same way per-team subscriptions do.
+
+1. Open <https://vodkadav.github.io/calendarInport/>.
+2. Scroll to the **Favourites preset (11 teams)** card.
+3. Click **Subscribe to Favourites** (or, if you prefer a one-shot file, **Download Favourites .ics**).
+4. The single calendar appears in your sidebar named "FIFA World Cup 2026 — Favourites".
+
+Direct URL if you want to add it by hand: `https://vodkadav.github.io/calendarInport/ics/favourites.ics` (swap `https://` → `webcal://` for the iOS-style scheme).
+
+Knockout matches involving the favourites appear automatically once their teams are resolved (about 24 h after each round ends).
+
 ### Download
 
 Download mode gives you a one-shot `.ics` file. Good if you want a snapshot now and do not care about automatic updates.
