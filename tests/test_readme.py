@@ -22,6 +22,7 @@ REQUIRED_H1 = "# FIFA 2026 World Cup — calendar import"
 
 REQUIRED_H2_ORDER = [
     "## How to use it",
+    "## Will this show on my partner's calendar?",
     "## What you get",
     "## Knockout stage",
     "## Privacy",
@@ -332,3 +333,90 @@ def test_no_external_image_html_tag() -> None:
     via inline HTML."""
     body = _read()
     assert not re.search(r"<img\s+[^>]*src\s*=\s*['\"]https?://", body, re.IGNORECASE)
+
+
+# ---------------------------------------------------------------------------
+# Slice 2.9 — partner-visibility section + selected-teams workflow
+# ---------------------------------------------------------------------------
+
+
+def test_partner_section_present_and_explains_isolation() -> None:
+    """The 'Will this show on my partner's calendar?' section must exist and
+    explain that subscribed calendars stay on the user's account only.
+    """
+    body = _read()
+    heading = "## Will this show on my partner's calendar?"
+    assert heading in body, f"missing H2: {heading!r}"
+    section = _section_text(body, heading)
+    assert section.strip(), "partner-visibility section is empty"
+    lower = section.lower()
+    assert "subscribe" in lower, "partner section must explain the Subscribe path"
+    assert "your account" in lower or "your own" in lower, (
+        "partner section must clarify the subscription stays on the user's account"
+    )
+    assert "share" in lower, (
+        "partner section must mention sharing as the path that would propagate"
+    )
+
+
+def test_partner_section_addresses_download_propagation() -> None:
+    """The partner section (or one of the Subscribe/Download subsections) must
+    warn that the Download path can propagate via a shared primary calendar."""
+    body = _read()
+    lower = body.lower()
+    # The phrase must appear *somewhere*; concrete location is the partner H2
+    # but we don't pin it too tightly so future restructure can move it.
+    assert (
+        "shared" in lower
+        and ("download" in lower or "import" in lower)
+        and ("propagate" in lower
+             or "appear" in lower
+             or "show up" in lower
+             or "visible" in lower)
+    ), (
+        "README must explicitly warn that Download → shared primary calendar "
+        "is the propagation risk path"
+    )
+
+
+def test_selected_teams_subscribe_workflow_documented() -> None:
+    """The Subscribe section must walk through: tick teams → click Subscribe →
+    one link per team → subscribe each → calendars appear in sidebar."""
+    body = _read()
+    sub_idx = body.find("### Subscribe")
+    assert sub_idx >= 0, "missing '### Subscribe' subheading"
+    after = body[sub_idx:]
+    next_h = re.search(r"^(##\s|###\s)", after[len("### Subscribe"):], re.MULTILINE)
+    section = after[: next_h.start() + len("### Subscribe")] if next_h else after
+    lower = section.lower()
+    # Mentions per-team multi-link reality
+    assert (
+        "one link per team" in lower
+        or "one calendar per team" in lower
+        or "per selected team" in lower
+        or "for each selected team" in lower
+        or "one url per" in lower
+    ), (
+        "Subscribe section must explicitly say one subscribe link/calendar per "
+        "selected team (so users know they'll subscribe N times for N teams)"
+    )
+    # Mentions sidebar / toggleable behaviour
+    assert (
+        "toggle" in lower
+        or "checkbox" in lower
+        or "sidebar" in lower
+        or "show/hide" in lower
+        or "hide" in lower
+    ), (
+        "Subscribe section must explain calendars can be toggled on/off in the "
+        "calendar app sidebar"
+    )
+    # Mentions whole-tournament alternative
+    assert (
+        "all 104" in lower
+        or "whole tournament" in lower
+        or "single calendar" in lower
+    ), (
+        "Subscribe section must mention the 'Subscribe to all 104' single-calendar "
+        "alternative for users who want one entry"
+    )

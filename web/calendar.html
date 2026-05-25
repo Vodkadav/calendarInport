@@ -82,6 +82,8 @@ ul.teams input[type=checkbox] { width: 20px; height: 20px; }
 .toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
 .toolbar button { flex: 0 0 auto; padding: 0.4rem 0.75rem; min-height: 36px;
   font-size: 0.9rem; background: transparent; color: var(--accent); }
+.button-caption { margin: 0.6rem 0 0; }
+.button-caption + .button-caption { margin-top: 0.35rem; }
 @media (max-width: 480px) {
   main { padding: 1rem 0.75rem 5rem; }
   h1 { font-size: 1.25rem; }
@@ -124,9 +126,15 @@ ul.teams input[type=checkbox] { width: 20px; height: 20px; }
     <h2>Selected teams</h2>
     <p class="muted" id="selection-summary">No teams selected.</p>
     <div class="btn-row">
-      <button id="download-selected" type="button" disabled>Download .ics for selected teams</button>
       <button id="subscribe-selected" type="button" disabled>Subscribe (webcal://) for selected teams</button>
+      <button id="download-selected" type="button" class="secondary" disabled>Download .ics for selected teams</button>
     </div>
+    <p class="muted button-caption" id="subscribe-selected-caption">
+      <strong>Subscribe</strong> — adds a separate calendar (one per selected team) you can toggle on/off in your calendar app's sidebar. Stays on your account only; auto-updates as the bracket fills in.
+    </p>
+    <p class="muted button-caption" id="download-selected-caption">
+      <strong>Download</strong> — imports the events into your default calendar. If that calendar is shared (e.g. family-sharing), the matches appear there too. Does not auto-update.
+    </p>
     <div id="status-box" class="statusbox hidden" role="status"></div>
     <ul id="subscribe-list" class="sublist"></ul>
   </section>

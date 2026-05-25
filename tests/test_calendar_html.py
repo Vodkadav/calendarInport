@@ -319,3 +319,69 @@ def test_utf8_charset_declared() -> None:
     meta = soup.find("meta", attrs={"charset": True})
     assert meta is not None, "no <meta charset> declared"
     assert meta["charset"].lower() == "utf-8"
+
+
+# ---------------------------------------------------------------------------
+# Slice 2.9 — primary/secondary button hierarchy + inline captions
+# ---------------------------------------------------------------------------
+
+
+def test_subscribe_button_is_primary_download_is_secondary() -> None:
+    """Subscribe must be the visually primary action; Download must be styled
+    secondary. The cue is the `secondary` class on the Download button.
+    The Subscribe button must NOT carry the `secondary` class.
+    """
+    soup = _soup()
+    sub = soup.find(id="subscribe-selected")
+    dl = soup.find(id="download-selected")
+    assert sub is not None and dl is not None
+    sub_class = " ".join(sub.get("class") or [])
+    dl_class = " ".join(dl.get("class") or [])
+    assert "secondary" in dl_class, (
+        f"#download-selected must use the 'secondary' class; got class={dl_class!r}"
+    )
+    assert "secondary" not in sub_class, (
+        f"#subscribe-selected must be primary (no 'secondary' class); "
+        f"got class={sub_class!r}"
+    )
+
+
+def test_subscribe_caption_present() -> None:
+    """Inline caption under Subscribe explains the toggleable / account-only
+    property. Asserts a stable substring of the locked copy."""
+    text = _read_html()
+    assert "stays on your account" in text.lower(), (
+        "missing Subscribe caption substring 'stays on your account'"
+    )
+    assert (
+        "toggle on/off" in text.lower()
+        or "toggle on / off" in text.lower()
+        or "toggleable" in text.lower()
+    ), "missing Subscribe caption substring about toggling"
+
+
+def test_download_caption_present() -> None:
+    """Inline caption under Download warns about the shared-primary-calendar
+    propagation risk and the lack of auto-update."""
+    text = _read_html()
+    lower = text.lower()
+    assert "shared" in lower, "missing Download caption mention of 'shared'"
+    assert (
+        "does not auto-update" in lower
+        or "does not update" in lower
+        or "no auto-update" in lower
+        or "not auto-update" in lower
+    ), "missing Download caption warning about no auto-update"
+
+
+def test_subscribe_caption_id_stable() -> None:
+    """The inline captions must live in elements with stable IDs so future
+    edits don't accidentally remove them. IDs: #subscribe-selected-caption
+    and #download-selected-caption."""
+    soup = _soup()
+    assert soup.find(id="subscribe-selected-caption") is not None, (
+        "missing #subscribe-selected-caption"
+    )
+    assert soup.find(id="download-selected-caption") is not None, (
+        "missing #download-selected-caption"
+    )

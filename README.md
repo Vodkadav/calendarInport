@@ -12,21 +12,29 @@ Open the picker, tick the teams you care about (or pick "Whole tournament"), the
 
 ### Subscribe (recommended)
 
-Subscribing means your calendar app polls our public file on its own schedule. When the knockout bracket fills in or a broadcaster is announced, you get the update for free — no re-import.
+Subscribing means your calendar app polls our public file on its own schedule. When the knockout bracket fills in or a broadcaster is announced, you get the update for free — no re-import. Subscribed calendars also stay on **your** account only — they do not propagate to anyone you share a calendar with (see *Will this show on my partner's calendar?* below).
+
+**Step-by-step — adding matches for your selected teams:**
+
+1. Open <https://vodkadav.github.io/calendarInport/>.
+2. Tick the teams you care about (or use **Subscribe to all 104 matches** for the whole tournament as a single calendar).
+3. Click **Subscribe (webcal://) for selected teams**. You get **one link per selected team** — pick three teams, get three links. Each link becomes its own subscribed calendar in your calendar app's sidebar; you can show/hide them individually with the visibility checkbox, or toggle them all together.
+4. Subscribe to each link in your calendar app (per-platform steps below).
+5. The new calendars appear in your sidebar. Each has its own colour and visibility checkbox. You can toggle them on/off without unsubscribing.
+
+If you want a **single calendar entry** in your sidebar rather than one per team, use **Subscribe to all 104 matches** instead — it's a single webcal:// URL that covers every match.
 
 **On iPhone / iOS:**
-1. Open <https://vodkadav.github.io/calendarInport/> in Safari.
-2. Tick the teams you want, or "Whole tournament".
-3. Tap **Subscribe (webcal://)**. A `webcal://` link appears for each selected team.
-4. Tap the link. iOS asks "Subscribe to Calendar?" — confirm.
-5. Repeat per team if you picked more than one.
+1. Open the picker in Safari. Tick teams (or pick the whole-tournament button).
+2. Tap each `webcal://` link you generated. iOS asks "Subscribe to Calendar?" — confirm.
+3. Repeat per team if you picked more than one.
 
 **On Android with Google Calendar:**
-1. Open <https://vodkadav.github.io/calendarInport/> on your phone or desktop.
-2. Tick the teams you want.
-3. Click **Subscribe (webcal://)** and copy the URL it shows (replace the `webcal://` scheme with `https://` for Google).
-4. On desktop Google Calendar: click the gear icon → **Settings** → **Add calendar** → **From URL** → paste the URL → **Add calendar**.
-5. The calendar appears on your phone within a few minutes (your Google account syncs it down).
+1. Open the picker on your phone or desktop. Tick teams.
+2. Click **Subscribe (webcal://) for selected teams** and copy each URL it shows.
+3. Replace the `webcal://` scheme with `https://` for Google.
+4. On desktop Google Calendar: click the gear icon → **Settings** → **Add calendar** → **From URL** → paste the URL → **Add calendar**. Repeat per team.
+5. The calendars appear on your phone within a few minutes (your Google account syncs them down).
 
 **Important:** the published calendar auto-refreshes every few hours on our side, so when (for example) "Winner Group A" gets replaced with a real team name after the group stage ends, your subscribed calendar updates automatically. You do nothing.
 
@@ -39,7 +47,18 @@ Download mode gives you a one-shot `.ics` file. Good if you want a snapshot now 
 3. Click **Download .ics for selected teams**. Your browser saves a single `.ics` file.
 4. Double-click the file. Your default calendar app imports the events.
 
-**Caveat:** this does **not** auto-update. If your selection includes knockout matches, the events will be stuck showing placeholder names like "Winner Group A vs Runner-up Group B" forever. If you want the bracket to resolve as the tournament progresses, use **Subscribe** instead.
+**Caveat 1:** the file does **not** auto-update. If your selection includes knockout matches, the events will be stuck showing placeholder names like "Winner Group A vs Runner-up Group B" forever. If you want the bracket to resolve as the tournament progresses, use **Subscribe** instead.
+
+**Caveat 2:** the events are imported into whichever calendar you point Google or Apple at — usually your **primary** calendar. If that primary calendar is shared with someone (family-sharing, a shared couples' calendar, anything similar), the matches appear there too. Subscribe avoids that — see the next section.
+
+## Will this show on my partner's calendar?
+
+Short answer: **not if you Subscribe.** Here's what each mode does to a calendar account you share with someone else (family-sharing, a manually-shared primary calendar, a couples' calendar):
+
+- **Subscribe** adds the matches as a **new, separate calendar** that lives only on your account. It appears as its own entry in your calendar app's sidebar with its own colour and visibility checkbox. You can toggle it on/off without unsubscribing. Your partner does not see it — subscribed calendars in Google Calendar and iOS Calendar are per-user and not shared automatically. You would have to deliberately share that calendar with them for it to appear on their side.
+- **Download** adds the matches as events **inside whichever calendar you import them into** — usually your primary. If that primary calendar is shared with your partner, the imported events propagate and appear visible on their side too.
+
+If your goal is "matches on my phone, nothing on my partner's phone", use **Subscribe**.
 
 ## What you get
 
