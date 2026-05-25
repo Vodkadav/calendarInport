@@ -219,9 +219,7 @@ def test_summary_resolved_match_uses_team_names() -> None:
     out = _build_all([_match()])
     cal = Calendar.from_ical(out)
     v = next(c for c in cal.subcomponents if c.name == "VEVENT")
-    # TEMP slice 2.7: match-1's SUMMARY carries the ' [test]' marker for
-    # webcal:// auto-update verification. Revert with the generate.py change.
-    assert str(v["SUMMARY"]) == "Mexico vs South Africa [test]"
+    assert str(v["SUMMARY"]) == "Mexico vs South Africa"
 
 
 # ---------------------------------------------------------------------------

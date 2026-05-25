@@ -118,11 +118,7 @@ def _summary(match: dict[str, Any]) -> str:
     t2 = match.get("team2")
     left = t1 if t1 else render_token(match.get("team1_token") or "")
     right = t2 if t2 else render_token(match.get("team2_token") or "")
-    summary = f"{left} vs {right}"
-    # TEMP slice 2.7 marker — verify webcal:// auto-update propagation. Revert after confirmation.
-    if match.get("id") == 1:
-        summary += " [test]"
-    return summary
+    return f"{left} vs {right}"
 
 
 def _location(match: dict[str, Any]) -> str:
