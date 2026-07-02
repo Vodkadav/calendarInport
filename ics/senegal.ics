@@ -1,0 +1,69 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Vodkadav//calendarInport//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FIFA World Cup 2026 — Senegal
+X-WR-TIMEZONE:Europe/Copenhagen
+BEGIN:VTIMEZONE
+TZID:Europe/Copenhagen
+BEGIN:STANDARD
+DTSTART:19701025T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:match-17@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260616T210000
+DTEND;TZID=Europe/Copenhagen:20260616T230000
+SUMMARY:France vs Senegal
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Matchday 6 — Group I\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-43@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260623T020000
+DTEND;TZID=Europe/Copenhagen:20260623T040000
+SUMMARY:Norway vs Senegal
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Matchday 12 — Group I\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-62@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260626T210000
+DTEND;TZID=Europe/Copenhagen:20260626T230000
+SUMMARY:Senegal vs Iraq
+LOCATION:BMO Field\, Toronto\, Canada
+DESCRIPTION:Stage: Matchday 16 — Group I\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-81@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260701T220000
+DTEND;TZID=Europe/Copenhagen:20260702T000000
+SUMMARY:Belgium vs Senegal
+LOCATION:Lumen Field\, Seattle\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+END:VCALENDAR

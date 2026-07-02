@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Algeria",
+    "slug": "algeria",
+    "group": "J"
+  },
+  {
+    "name": "Argentina",
+    "slug": "argentina",
+    "group": "J"
+  },
+  {
+    "name": "Australia",
+    "slug": "australia",
+    "group": "D"
+  },
+  {
+    "name": "Austria",
+    "slug": "austria",
+    "group": "J"
+  },
+  {
+    "name": "Belgium",
+    "slug": "belgium",
+    "group": "G"
+  },
+  {
+    "name": "Bosnia & Herzegovina",
+    "slug": "bosnia-herzegovina",
+    "group": "B"
+  },
+  {
+    "name": "Brazil",
+    "slug": "brazil",
+    "group": "C"
+  },
+  {
+    "name": "Canada",
+    "slug": "canada",
+    "group": "B"
+  },
+  {
+    "name": "Cape Verde",
+    "slug": "cape-verde",
+    "group": "H"
+  },
+  {
+    "name": "Colombia",
+    "slug": "colombia",
+    "group": "K"
+  },
+  {
+    "name": "Croatia",
+    "slug": "croatia",
+    "group": "L"
+  },
+  {
+    "name": "Curaçao",
+    "slug": "curacao",
+    "group": "E"
+  },
+  {
+    "name": "Czech Republic",
+    "slug": "czech-republic",
+    "group": "A"
+  },
+  {
+    "name": "DR Congo",
+    "slug": "dr-congo",
+    "group": "K"
+  },
+  {
+    "name": "Ecuador",
+    "slug": "ecuador",
+    "group": "E"
+  },
+  {
+    "name": "Egypt",
+    "slug": "egypt",
+    "group": "G"
+  },
+  {
+    "name": "England",
+    "slug": "england",
+    "group": "L"
+  },
+  {
+    "name": "France",
+    "slug": "france",
+    "group": "I"
+  },
+  {
+    "name": "Germany",
+    "slug": "germany",
+    "group": "E"
+  },
+  {
+    "name": "Ghana",
+    "slug": "ghana",
+    "group": "L"
+  },
+  {
+    "name": "Haiti",
+    "slug": "haiti",
+    "group": "C"
+  },
+  {
+    "name": "Iran",
+    "slug": "iran",
+    "group": "G"
+  },
+  {
+    "name": "Iraq",
+    "slug": "iraq",
+    "group": "I"
+  },
+  {
+    "name": "Ivory Coast",
+    "slug": "ivory-coast",
+    "group": "E"
+  },
+  {
+    "name": "Japan",
+    "slug": "japan",
+    "group": "F"
+  },
+  {
+    "name": "Jordan",
+    "slug": "jordan",
+    "group": "J"
+  },
+  {
+    "name": "Mexico",
+    "slug": "mexico",
+    "group": "A"
+  },
+  {
+    "name": "Morocco",
+    "slug": "morocco",
+    "group": "C"
+  },
+  {
+    "name": "Netherlands",
+    "slug": "netherlands",
+    "group": "F"
+  },
+  {
+    "name": "New Zealand",
+    "slug": "new-zealand",
+    "group": "G"
+  },
+  {
+    "name": "Norway",
+    "slug": "norway",
+    "group": "I"
+  },
+  {
+    "name": "Panama",
+    "slug": "panama",
+    "group": "L"
+  },
+  {
+    "name": "Paraguay",
+    "slug": "paraguay",
+    "group": "D"
+  },
+  {
+    "name": "Portugal",
+    "slug": "portugal",
+    "group": "K"
+  },
+  {
+    "name": "Qatar",
+    "slug": "qatar",
+    "group": "B"
+  },
+  {
+    "name": "Saudi Arabia",
+    "slug": "saudi-arabia",
+    "group": "H"
+  },
+  {
+    "name": "Scotland",
+    "slug": "scotland",
+    "group": "C"
+  },
+  {
+    "name": "Senegal",
+    "slug": "senegal",
+    "group": "I"
+  },
+  {
+    "name": "South Africa",
+    "slug": "south-africa",
+    "group": "A"
+  },
+  {
+    "name": "South Korea",
+    "slug": "south-korea",
+    "group": "A"
+  },
+  {
+    "name": "Spain",
+    "slug": "spain",
+    "group": "H"
+  },
+  {
+    "name": "Sweden",
+    "slug": "sweden",
+    "group": "F"
+  },
+  {
+    "name": "Switzerland",
+    "slug": "switzerland",
+    "group": "B"
+  },
+  {
+    "name": "Tunisia",
+    "slug": "tunisia",
+    "group": "F"
+  },
+  {
+    "name": "Turkey",
+    "slug": "turkey",
+    "group": "D"
+  },
+  {
+    "name": "USA",
+    "slug": "usa",
+    "group": "D"
+  },
+  {
+    "name": "Uruguay",
+    "slug": "uruguay",
+    "group": "H"
+  },
+  {
+    "name": "Uzbekistan",
+    "slug": "uzbekistan",
+    "group": "K"
+  }
+]

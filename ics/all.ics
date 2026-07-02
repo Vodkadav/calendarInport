@@ -1,0 +1,1169 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Vodkadav//calendarInport//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FIFA World Cup 2026
+X-WR-TIMEZONE:Europe/Copenhagen
+BEGIN:VTIMEZONE
+TZID:Europe/Copenhagen
+BEGIN:STANDARD
+DTSTART:19701025T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:match-1@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260611T210000
+DTEND;TZID=Europe/Copenhagen:20260611T230000
+SUMMARY:Mexico vs South Africa
+LOCATION:Estadio Azteca\, Mexico City\, Mexico
+DESCRIPTION:Stage: Matchday 1 — Group A\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-2@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260612T040000
+DTEND;TZID=Europe/Copenhagen:20260612T060000
+SUMMARY:South Korea vs Czech Republic
+LOCATION:Estadio Akron\, Zapopan\, Mexico
+DESCRIPTION:Stage: Matchday 1 — Group A\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-3@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260612T210000
+DTEND;TZID=Europe/Copenhagen:20260612T230000
+SUMMARY:Canada vs Bosnia & Herzegovina
+LOCATION:BMO Field\, Toronto\, Canada
+DESCRIPTION:Stage: Matchday 2 — Group B\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-4@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260613T030000
+DTEND;TZID=Europe/Copenhagen:20260613T050000
+SUMMARY:USA vs Paraguay
+LOCATION:SoFi Stadium\, Inglewood\, United States
+DESCRIPTION:Stage: Matchday 2 — Group D\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-5@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260613T210000
+DTEND;TZID=Europe/Copenhagen:20260613T230000
+SUMMARY:Qatar vs Switzerland
+LOCATION:Levi's Stadium\, Santa Clara\, United States
+DESCRIPTION:Stage: Matchday 3 — Group B\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-6@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260614T000000
+DTEND;TZID=Europe/Copenhagen:20260614T020000
+SUMMARY:Brazil vs Morocco
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Matchday 3 — Group C\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-7@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260614T030000
+DTEND;TZID=Europe/Copenhagen:20260614T050000
+SUMMARY:Haiti vs Scotland
+LOCATION:Gillette Stadium\, Foxborough\, United States
+DESCRIPTION:Stage: Matchday 3 — Group C\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-8@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260614T060000
+DTEND;TZID=Europe/Copenhagen:20260614T080000
+SUMMARY:Australia vs Turkey
+LOCATION:BC Place\, Vancouver\, Canada
+DESCRIPTION:Stage: Matchday 3 — Group D\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-9@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260614T190000
+DTEND;TZID=Europe/Copenhagen:20260614T210000
+SUMMARY:Germany vs Curaçao
+LOCATION:NRG Stadium\, Houston\, United States
+DESCRIPTION:Stage: Matchday 4 — Group E\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-10@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260614T220000
+DTEND;TZID=Europe/Copenhagen:20260615T000000
+SUMMARY:Netherlands vs Japan
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Matchday 4 — Group F\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-11@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260615T010000
+DTEND;TZID=Europe/Copenhagen:20260615T030000
+SUMMARY:Ivory Coast vs Ecuador
+LOCATION:Lincoln Financial Field\, Philadelphia\, United States
+DESCRIPTION:Stage: Matchday 4 — Group E\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-12@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260615T040000
+DTEND;TZID=Europe/Copenhagen:20260615T060000
+SUMMARY:Sweden vs Tunisia
+LOCATION:Estadio BBVA\, Guadalupe\, Mexico
+DESCRIPTION:Stage: Matchday 4 — Group F\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-13@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260615T180000
+DTEND;TZID=Europe/Copenhagen:20260615T200000
+SUMMARY:Spain vs Cape Verde
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, United States
+DESCRIPTION:Stage: Matchday 5 — Group H\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-14@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260615T210000
+DTEND;TZID=Europe/Copenhagen:20260615T230000
+SUMMARY:Belgium vs Egypt
+LOCATION:Lumen Field\, Seattle\, United States
+DESCRIPTION:Stage: Matchday 5 — Group G\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-15@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260616T000000
+DTEND;TZID=Europe/Copenhagen:20260616T020000
+SUMMARY:Saudi Arabia vs Uruguay
+LOCATION:Hard Rock Stadium\, Miami Gardens\, United States
+DESCRIPTION:Stage: Matchday 5 — Group H\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-16@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260616T030000
+DTEND;TZID=Europe/Copenhagen:20260616T050000
+SUMMARY:Iran vs New Zealand
+LOCATION:SoFi Stadium\, Inglewood\, United States
+DESCRIPTION:Stage: Matchday 5 — Group G\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-17@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260616T210000
+DTEND;TZID=Europe/Copenhagen:20260616T230000
+SUMMARY:France vs Senegal
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Matchday 6 — Group I\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-18@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260617T000000
+DTEND;TZID=Europe/Copenhagen:20260617T020000
+SUMMARY:Iraq vs Norway
+LOCATION:Gillette Stadium\, Foxborough\, United States
+DESCRIPTION:Stage: Matchday 6 — Group I\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-19@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260617T030000
+DTEND;TZID=Europe/Copenhagen:20260617T050000
+SUMMARY:Argentina vs Algeria
+LOCATION:Arrowhead Stadium\, Kansas City\, United States
+DESCRIPTION:Stage: Matchday 6 — Group J\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-20@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260617T060000
+DTEND;TZID=Europe/Copenhagen:20260617T080000
+SUMMARY:Austria vs Jordan
+LOCATION:Levi's Stadium\, Santa Clara\, United States
+DESCRIPTION:Stage: Matchday 6 — Group J\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-21@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260617T190000
+DTEND;TZID=Europe/Copenhagen:20260617T210000
+SUMMARY:Portugal vs DR Congo
+LOCATION:NRG Stadium\, Houston\, United States
+DESCRIPTION:Stage: Matchday 7 — Group K\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-22@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260617T220000
+DTEND;TZID=Europe/Copenhagen:20260618T000000
+SUMMARY:England vs Croatia
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Matchday 7 — Group L\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-23@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260618T010000
+DTEND;TZID=Europe/Copenhagen:20260618T030000
+SUMMARY:Ghana vs Panama
+LOCATION:BMO Field\, Toronto\, Canada
+DESCRIPTION:Stage: Matchday 7 — Group L\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-24@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260618T040000
+DTEND;TZID=Europe/Copenhagen:20260618T060000
+SUMMARY:Uzbekistan vs Colombia
+LOCATION:Estadio Azteca\, Mexico City\, Mexico
+DESCRIPTION:Stage: Matchday 7 — Group K\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-25@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260618T180000
+DTEND;TZID=Europe/Copenhagen:20260618T200000
+SUMMARY:Czech Republic vs South Africa
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, United States
+DESCRIPTION:Stage: Matchday 8 — Group A\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-26@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260618T210000
+DTEND;TZID=Europe/Copenhagen:20260618T230000
+SUMMARY:Switzerland vs Bosnia & Herzegovina
+LOCATION:SoFi Stadium\, Inglewood\, United States
+DESCRIPTION:Stage: Matchday 8 — Group B\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-27@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260619T000000
+DTEND;TZID=Europe/Copenhagen:20260619T020000
+SUMMARY:Canada vs Qatar
+LOCATION:BC Place\, Vancouver\, Canada
+DESCRIPTION:Stage: Matchday 8 — Group B\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-28@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260619T030000
+DTEND;TZID=Europe/Copenhagen:20260619T050000
+SUMMARY:Mexico vs South Korea
+LOCATION:Estadio Akron\, Zapopan\, Mexico
+DESCRIPTION:Stage: Matchday 8 — Group A\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-29@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260619T210000
+DTEND;TZID=Europe/Copenhagen:20260619T230000
+SUMMARY:USA vs Australia
+LOCATION:Lumen Field\, Seattle\, United States
+DESCRIPTION:Stage: Matchday 9 — Group D\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-30@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260620T000000
+DTEND;TZID=Europe/Copenhagen:20260620T020000
+SUMMARY:Scotland vs Morocco
+LOCATION:Gillette Stadium\, Foxborough\, United States
+DESCRIPTION:Stage: Matchday 9 — Group C\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-31@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260620T023000
+DTEND;TZID=Europe/Copenhagen:20260620T043000
+SUMMARY:Brazil vs Haiti
+LOCATION:Lincoln Financial Field\, Philadelphia\, United States
+DESCRIPTION:Stage: Matchday 9 — Group C\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-32@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260620T050000
+DTEND;TZID=Europe/Copenhagen:20260620T070000
+SUMMARY:Turkey vs Paraguay
+LOCATION:Levi's Stadium\, Santa Clara\, United States
+DESCRIPTION:Stage: Matchday 9 — Group D\nChannels (DK): TBD\nSources: ope
+ nfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-33@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260620T190000
+DTEND;TZID=Europe/Copenhagen:20260620T210000
+SUMMARY:Netherlands vs Sweden
+LOCATION:NRG Stadium\, Houston\, United States
+DESCRIPTION:Stage: Matchday 10 — Group F\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-34@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260620T220000
+DTEND;TZID=Europe/Copenhagen:20260621T000000
+SUMMARY:Germany vs Ivory Coast
+LOCATION:BMO Field\, Toronto\, Canada
+DESCRIPTION:Stage: Matchday 10 — Group E\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-35@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260621T020000
+DTEND;TZID=Europe/Copenhagen:20260621T040000
+SUMMARY:Ecuador vs Curaçao
+LOCATION:Arrowhead Stadium\, Kansas City\, United States
+DESCRIPTION:Stage: Matchday 10 — Group E\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-36@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260621T060000
+DTEND;TZID=Europe/Copenhagen:20260621T080000
+SUMMARY:Tunisia vs Japan
+LOCATION:Estadio BBVA\, Guadalupe\, Mexico
+DESCRIPTION:Stage: Matchday 10 — Group F\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-37@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260621T180000
+DTEND;TZID=Europe/Copenhagen:20260621T200000
+SUMMARY:Spain vs Saudi Arabia
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, United States
+DESCRIPTION:Stage: Matchday 11 — Group H\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-38@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260621T210000
+DTEND;TZID=Europe/Copenhagen:20260621T230000
+SUMMARY:Belgium vs Iran
+LOCATION:SoFi Stadium\, Inglewood\, United States
+DESCRIPTION:Stage: Matchday 11 — Group G\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-39@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260622T000000
+DTEND;TZID=Europe/Copenhagen:20260622T020000
+SUMMARY:Uruguay vs Cape Verde
+LOCATION:Hard Rock Stadium\, Miami Gardens\, United States
+DESCRIPTION:Stage: Matchday 11 — Group H\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-40@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260622T030000
+DTEND;TZID=Europe/Copenhagen:20260622T050000
+SUMMARY:New Zealand vs Egypt
+LOCATION:BC Place\, Vancouver\, Canada
+DESCRIPTION:Stage: Matchday 11 — Group G\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-41@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260622T190000
+DTEND;TZID=Europe/Copenhagen:20260622T210000
+SUMMARY:Argentina vs Austria
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Matchday 12 — Group J\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-42@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260622T230000
+DTEND;TZID=Europe/Copenhagen:20260623T010000
+SUMMARY:France vs Iraq
+LOCATION:Lincoln Financial Field\, Philadelphia\, United States
+DESCRIPTION:Stage: Matchday 12 — Group I\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-43@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260623T020000
+DTEND;TZID=Europe/Copenhagen:20260623T040000
+SUMMARY:Norway vs Senegal
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Matchday 12 — Group I\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-44@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260623T050000
+DTEND;TZID=Europe/Copenhagen:20260623T070000
+SUMMARY:Jordan vs Algeria
+LOCATION:Levi's Stadium\, Santa Clara\, United States
+DESCRIPTION:Stage: Matchday 12 — Group J\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-45@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260623T190000
+DTEND;TZID=Europe/Copenhagen:20260623T210000
+SUMMARY:Portugal vs Uzbekistan
+LOCATION:NRG Stadium\, Houston\, United States
+DESCRIPTION:Stage: Matchday 13 — Group K\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-46@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260623T220000
+DTEND;TZID=Europe/Copenhagen:20260624T000000
+SUMMARY:England vs Ghana
+LOCATION:Gillette Stadium\, Foxborough\, United States
+DESCRIPTION:Stage: Matchday 13 — Group L\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-47@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260624T010000
+DTEND;TZID=Europe/Copenhagen:20260624T030000
+SUMMARY:Panama vs Croatia
+LOCATION:BMO Field\, Toronto\, Canada
+DESCRIPTION:Stage: Matchday 13 — Group L\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-48@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260624T040000
+DTEND;TZID=Europe/Copenhagen:20260624T060000
+SUMMARY:Colombia vs DR Congo
+LOCATION:Estadio Akron\, Zapopan\, Mexico
+DESCRIPTION:Stage: Matchday 13 — Group K\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-49@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260624T210000
+DTEND;TZID=Europe/Copenhagen:20260624T230000
+SUMMARY:Bosnia & Herzegovina vs Qatar
+LOCATION:Lumen Field\, Seattle\, United States
+DESCRIPTION:Stage: Matchday 14 — Group B\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-50@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260624T210000
+DTEND;TZID=Europe/Copenhagen:20260624T230000
+SUMMARY:Switzerland vs Canada
+LOCATION:BC Place\, Vancouver\, Canada
+DESCRIPTION:Stage: Matchday 14 — Group B\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-51@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260625T000000
+DTEND;TZID=Europe/Copenhagen:20260625T020000
+SUMMARY:Morocco vs Haiti
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, United States
+DESCRIPTION:Stage: Matchday 14 — Group C\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-52@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260625T000000
+DTEND;TZID=Europe/Copenhagen:20260625T020000
+SUMMARY:Scotland vs Brazil
+LOCATION:Hard Rock Stadium\, Miami Gardens\, United States
+DESCRIPTION:Stage: Matchday 14 — Group C\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-53@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260625T030000
+DTEND;TZID=Europe/Copenhagen:20260625T050000
+SUMMARY:Czech Republic vs Mexico
+LOCATION:Estadio Azteca\, Mexico City\, Mexico
+DESCRIPTION:Stage: Matchday 14 — Group A\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-54@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260625T030000
+DTEND;TZID=Europe/Copenhagen:20260625T050000
+SUMMARY:South Africa vs South Korea
+LOCATION:Estadio BBVA\, Guadalupe\, Mexico
+DESCRIPTION:Stage: Matchday 14 — Group A\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-55@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260625T220000
+DTEND;TZID=Europe/Copenhagen:20260626T000000
+SUMMARY:Ecuador vs Germany
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Matchday 15 — Group E\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-56@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260625T220000
+DTEND;TZID=Europe/Copenhagen:20260626T000000
+SUMMARY:Curaçao vs Ivory Coast
+LOCATION:Lincoln Financial Field\, Philadelphia\, United States
+DESCRIPTION:Stage: Matchday 15 — Group E\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-57@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260626T010000
+DTEND;TZID=Europe/Copenhagen:20260626T030000
+SUMMARY:Japan vs Sweden
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Matchday 15 — Group F\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-58@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260626T010000
+DTEND;TZID=Europe/Copenhagen:20260626T030000
+SUMMARY:Tunisia vs Netherlands
+LOCATION:Arrowhead Stadium\, Kansas City\, United States
+DESCRIPTION:Stage: Matchday 15 — Group F\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-59@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260626T040000
+DTEND;TZID=Europe/Copenhagen:20260626T060000
+SUMMARY:Turkey vs USA
+LOCATION:SoFi Stadium\, Inglewood\, United States
+DESCRIPTION:Stage: Matchday 15 — Group D\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-60@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260626T040000
+DTEND;TZID=Europe/Copenhagen:20260626T060000
+SUMMARY:Paraguay vs Australia
+LOCATION:Levi's Stadium\, Santa Clara\, United States
+DESCRIPTION:Stage: Matchday 15 — Group D\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-61@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260626T210000
+DTEND;TZID=Europe/Copenhagen:20260626T230000
+SUMMARY:Norway vs France
+LOCATION:Gillette Stadium\, Foxborough\, United States
+DESCRIPTION:Stage: Matchday 16 — Group I\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-62@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260626T210000
+DTEND;TZID=Europe/Copenhagen:20260626T230000
+SUMMARY:Senegal vs Iraq
+LOCATION:BMO Field\, Toronto\, Canada
+DESCRIPTION:Stage: Matchday 16 — Group I\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-63@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260627T020000
+DTEND;TZID=Europe/Copenhagen:20260627T040000
+SUMMARY:Uruguay vs Spain
+LOCATION:Estadio Akron\, Zapopan\, Mexico
+DESCRIPTION:Stage: Matchday 16 — Group H\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-64@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260627T020000
+DTEND;TZID=Europe/Copenhagen:20260627T040000
+SUMMARY:Cape Verde vs Saudi Arabia
+LOCATION:NRG Stadium\, Houston\, United States
+DESCRIPTION:Stage: Matchday 16 — Group H\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-65@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260627T050000
+DTEND;TZID=Europe/Copenhagen:20260627T070000
+SUMMARY:Egypt vs Iran
+LOCATION:Lumen Field\, Seattle\, United States
+DESCRIPTION:Stage: Matchday 16 — Group G\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-66@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260627T050000
+DTEND;TZID=Europe/Copenhagen:20260627T070000
+SUMMARY:New Zealand vs Belgium
+LOCATION:BC Place\, Vancouver\, Canada
+DESCRIPTION:Stage: Matchday 16 — Group G\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-67@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260627T230000
+DTEND;TZID=Europe/Copenhagen:20260628T010000
+SUMMARY:Panama vs England
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Matchday 17 — Group L\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-68@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260627T230000
+DTEND;TZID=Europe/Copenhagen:20260628T010000
+SUMMARY:Croatia vs Ghana
+LOCATION:Lincoln Financial Field\, Philadelphia\, United States
+DESCRIPTION:Stage: Matchday 17 — Group L\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-69@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260628T013000
+DTEND;TZID=Europe/Copenhagen:20260628T033000
+SUMMARY:DR Congo vs Uzbekistan
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, United States
+DESCRIPTION:Stage: Matchday 17 — Group K\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-70@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260628T013000
+DTEND;TZID=Europe/Copenhagen:20260628T033000
+SUMMARY:Colombia vs Portugal
+LOCATION:Hard Rock Stadium\, Miami Gardens\, United States
+DESCRIPTION:Stage: Matchday 17 — Group K\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-71@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260628T040000
+DTEND;TZID=Europe/Copenhagen:20260628T060000
+SUMMARY:Jordan vs Argentina
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Matchday 17 — Group J\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-72@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260628T040000
+DTEND;TZID=Europe/Copenhagen:20260628T060000
+SUMMARY:Algeria vs Austria
+LOCATION:Arrowhead Stadium\, Kansas City\, United States
+DESCRIPTION:Stage: Matchday 17 — Group J\nChannels (DK): TBD\nSources: op
+ enfootball/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-73@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260628T210000
+DTEND;TZID=Europe/Copenhagen:20260628T230000
+SUMMARY:South Africa vs Canada
+LOCATION:SoFi Stadium\, Inglewood\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-74@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260629T190000
+DTEND;TZID=Europe/Copenhagen:20260629T210000
+SUMMARY:Brazil vs Japan
+LOCATION:NRG Stadium\, Houston\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-75@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260629T223000
+DTEND;TZID=Europe/Copenhagen:20260630T003000
+SUMMARY:Germany vs Paraguay
+LOCATION:Gillette Stadium\, Foxborough\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-76@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260630T030000
+DTEND;TZID=Europe/Copenhagen:20260630T050000
+SUMMARY:Netherlands vs Morocco
+LOCATION:Estadio BBVA\, Guadalupe\, Mexico
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-77@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260630T190000
+DTEND;TZID=Europe/Copenhagen:20260630T210000
+SUMMARY:Ivory Coast vs Norway
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-78@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260630T230000
+DTEND;TZID=Europe/Copenhagen:20260701T010000
+SUMMARY:France vs Sweden
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-79@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260701T030000
+DTEND;TZID=Europe/Copenhagen:20260701T050000
+SUMMARY:Mexico vs Ecuador
+LOCATION:Estadio Azteca\, Mexico City\, Mexico
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-80@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260701T180000
+DTEND;TZID=Europe/Copenhagen:20260701T200000
+SUMMARY:England vs DR Congo
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-81@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260701T220000
+DTEND;TZID=Europe/Copenhagen:20260702T000000
+SUMMARY:Belgium vs Senegal
+LOCATION:Lumen Field\, Seattle\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-82@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260702T020000
+DTEND;TZID=Europe/Copenhagen:20260702T040000
+SUMMARY:USA vs Bosnia & Herzegovina
+LOCATION:Levi's Stadium\, Santa Clara\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-83@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260702T210000
+DTEND;TZID=Europe/Copenhagen:20260702T230000
+SUMMARY:Spain vs Austria
+LOCATION:SoFi Stadium\, Inglewood\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TV 2\nSources: openfootball/
+ worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-84@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260703T010000
+DTEND;TZID=Europe/Copenhagen:20260703T030000
+SUMMARY:Portugal vs Croatia
+LOCATION:BMO Field\, Toronto\, Canada
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-85@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260703T050000
+DTEND;TZID=Europe/Copenhagen:20260703T070000
+SUMMARY:Switzerland vs Algeria
+LOCATION:BC Place\, Vancouver\, Canada
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TV 2\nSources: openfootball/
+ worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-86@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260703T200000
+DTEND;TZID=Europe/Copenhagen:20260703T220000
+SUMMARY:Australia vs Egypt
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-87@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260704T000000
+DTEND;TZID=Europe/Copenhagen:20260704T020000
+SUMMARY:Argentina vs Cape Verde
+LOCATION:Hard Rock Stadium\, Miami Gardens\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-88@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260704T033000
+DTEND;TZID=Europe/Copenhagen:20260704T053000
+SUMMARY:Colombia vs Ghana
+LOCATION:Arrowhead Stadium\, Kansas City\, United States
+DESCRIPTION:Stage: Round of 32\nChannels (DK): TV 2\nSources: openfootball/
+ worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-89@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260704T190000
+DTEND;TZID=Europe/Copenhagen:20260704T210000
+SUMMARY:Canada vs Morocco
+LOCATION:NRG Stadium\, Houston\, United States
+DESCRIPTION:Stage: Round of 16\nChannels (DK): TV 2\nSources: openfootball/
+ worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-90@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260704T230000
+DTEND;TZID=Europe/Copenhagen:20260705T010000
+SUMMARY:Paraguay vs France
+LOCATION:Lincoln Financial Field\, Philadelphia\, United States
+DESCRIPTION:Stage: Round of 16\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-91@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260705T220000
+DTEND;TZID=Europe/Copenhagen:20260706T000000
+SUMMARY:Brazil vs Norway
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Round of 16\nChannels (DK): TV 2\nSources: openfootball/
+ worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-92@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260706T020000
+DTEND;TZID=Europe/Copenhagen:20260706T040000
+SUMMARY:Mexico vs England
+LOCATION:Estadio Azteca\, Mexico City\, Mexico
+DESCRIPTION:Stage: Round of 16\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-93@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260706T210000
+DTEND;TZID=Europe/Copenhagen:20260706T230000
+SUMMARY:Winner of match 83 vs Winner of match 84
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Round of 16\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-94@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260707T020000
+DTEND;TZID=Europe/Copenhagen:20260707T040000
+SUMMARY:USA vs Belgium
+LOCATION:Lumen Field\, Seattle\, United States
+DESCRIPTION:Stage: Round of 16\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-95@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260707T180000
+DTEND;TZID=Europe/Copenhagen:20260707T200000
+SUMMARY:Winner of match 86 vs Winner of match 88
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, United States
+DESCRIPTION:Stage: Round of 16\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-96@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260707T220000
+DTEND;TZID=Europe/Copenhagen:20260708T000000
+SUMMARY:Winner of match 85 vs Winner of match 87
+LOCATION:BC Place\, Vancouver\, Canada
+DESCRIPTION:Stage: Round of 16\nChannels (DK): TBD\nSources: openfootball/w
+ orldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-97@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260709T220000
+DTEND;TZID=Europe/Copenhagen:20260710T000000
+SUMMARY:Winner of match 89 vs Winner of match 90
+LOCATION:Gillette Stadium\, Foxborough\, United States
+DESCRIPTION:Stage: Quarter-final\nChannels (DK): TBD\nSources: openfootball
+ /worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-98@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260710T210000
+DTEND;TZID=Europe/Copenhagen:20260710T230000
+SUMMARY:Winner of match 93 vs Winner of match 94
+LOCATION:SoFi Stadium\, Inglewood\, United States
+DESCRIPTION:Stage: Quarter-final\nChannels (DK): TBD\nSources: openfootball
+ /worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-99@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260711T230000
+DTEND;TZID=Europe/Copenhagen:20260712T010000
+SUMMARY:Winner of match 91 vs Winner of match 92
+LOCATION:Hard Rock Stadium\, Miami Gardens\, United States
+DESCRIPTION:Stage: Quarter-final\nChannels (DK): TBD\nSources: openfootball
+ /worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-100@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260712T030000
+DTEND;TZID=Europe/Copenhagen:20260712T050000
+SUMMARY:Winner of match 95 vs Winner of match 96
+LOCATION:Arrowhead Stadium\, Kansas City\, United States
+DESCRIPTION:Stage: Quarter-final\nChannels (DK): TBD\nSources: openfootball
+ /worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-101@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260714T210000
+DTEND;TZID=Europe/Copenhagen:20260714T230000
+SUMMARY:Winner of match 97 vs Winner of match 98
+LOCATION:AT&T Stadium\, Arlington\, United States
+DESCRIPTION:Stage: Semi-final\nChannels (DK): TBD\nSources: openfootball/wo
+ rldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-102@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260715T210000
+DTEND;TZID=Europe/Copenhagen:20260715T230000
+SUMMARY:Winner of match 99 vs Winner of match 100
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, United States
+DESCRIPTION:Stage: Semi-final\nChannels (DK): TBD\nSources: openfootball/wo
+ rldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-103@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260718T230000
+DTEND;TZID=Europe/Copenhagen:20260719T010000
+SUMMARY:Loser of match 101 vs Loser of match 102
+LOCATION:Hard Rock Stadium\, Miami Gardens\, United States
+DESCRIPTION:Stage: Match for third place\nChannels (DK): TBD\nSources: open
+ football/worldcup.json + TV2 sendeplan
+END:VEVENT
+BEGIN:VEVENT
+UID:match-104@worldcup2026.local
+DTSTAMP:20260702T081358Z
+SEQUENCE:20636
+DTSTART;TZID=Europe/Copenhagen:20260719T210000
+DTEND;TZID=Europe/Copenhagen:20260719T230000
+SUMMARY:Winner of match 101 vs Winner of match 102
+LOCATION:MetLife Stadium\, East Rutherford\, United States
+DESCRIPTION:Stage: Final\nChannels (DK): TBD\nSources: openfootball/worldcu
+ p.json + TV2 sendeplan
+END:VEVENT
+END:VCALENDAR
