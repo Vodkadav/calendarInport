@@ -135,7 +135,10 @@ def _summary(match: dict[str, Any]) -> str:
 
 
 def _location(match: dict[str, Any]) -> str:
-    return f"{match['venue']}, {match['city']}, {match['country']}"
+    # Unmapped grounds arrive with null venue fields (refresh.py warns) —
+    # skip them rather than rendering the literal "None".
+    parts = (match.get("venue"), match.get("city"), match.get("country"))
+    return ", ".join(p for p in parts if p)
 
 
 def _description(match: dict[str, Any]) -> str:
@@ -197,7 +200,9 @@ def build_event(match: dict[str, Any], build_dtstamp: str, sequence: int) -> lis
     _emit_raw(lines, f"DTSTART;TZID=Europe/Copenhagen:{_fmt_local_dt(match['kickoff_local'])}")
     _emit_raw(lines, f"DTEND;TZID=Europe/Copenhagen:{_add_two_hours(match['kickoff_local'])}")
     _emit(lines, "SUMMARY", _summary(match))
-    _emit(lines, "LOCATION", _location(match))
+    location = _location(match)
+    if location:
+        _emit(lines, "LOCATION", location)
     _emit(lines, "DESCRIPTION", _description(match))
     lines.append("END:VEVENT")
     return lines

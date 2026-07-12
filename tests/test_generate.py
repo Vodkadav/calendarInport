@@ -248,6 +248,15 @@ def test_location_combines_venue_city_country() -> None:
     assert str(v["LOCATION"]) == "Estadio Azteca, Mexico City, Mexico"
 
 
+def test_location_omits_null_venue_fields() -> None:
+    # Unmapped ground: refresh.py writes null venue/city/country and warns;
+    # LOCATION must not render the literal string "None".
+    out = _build_all([_match(venue=None, city=None, country=None, ground_raw="Atlantis")])
+    cal = Calendar.from_ical(out)
+    v = next(c for c in cal.subcomponents if c.name == "VEVENT")
+    assert str(v.get("LOCATION", "")) == ""
+
+
 # ---------------------------------------------------------------------------
 # 8. DESCRIPTION includes channels when present
 # ---------------------------------------------------------------------------
