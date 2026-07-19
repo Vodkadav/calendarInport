@@ -1,0 +1,15 @@
+{
+  "description": "FIFA 2026 World Cup calendar subscribe/import site. A Python generator merges openfootball fixtures with a TV 2 broadcaster scrape into per-team .ics calendars in Danish time; a daily GitHub Actions cron force-pushes them plus a static picker to GitHub Pages, where users subscribe via webcal:// and the knockout bracket auto-resolves.",
+  "install": [
+    "# Python 3.11+; installs the generator's deps (end users install nothing)",
+    "pip install -r requirements.txt"
+  ],
+  "run": [
+    "# Regenerate the calendars locally:",
+    "python scripts/refresh.py",
+    "python scripts/generate.py",
+    "# Offline build from fixtures: python scripts/refresh.py --dry-run",
+    "# Preview the picker: python -m http.server 8765  (open /web/calendar.html)",
+    "# End users just subscribe (no install): https://vodkadav.github.io/calendarInport/"
+  ]
+}

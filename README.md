@@ -108,6 +108,39 @@ The date, kickoff time, venue, and city are correct from day one. Only the team 
 
 ---
 
+## Installation
+
+End users install nothing — subscribing happens entirely inside your calendar app (see [How to use it](#how-to-use-it)). This section is for running the generator locally.
+
+Prerequisite: Python **3.11+**.
+
+```bash
+git clone https://github.com/Vodkadav/calendarInport.git
+cd calendarInport
+pip install -r requirements.txt
+```
+
+## Usage
+
+Regenerate the dataset and the `.ics` calendars locally:
+
+```bash
+python scripts/refresh.py      # fetch fixtures + TV 2 broadcasters -> data/merged.json
+python scripts/generate.py     # build ics/*.ics + data/teams.json
+python -m pytest -q            # full test suite (the cron's deploy gate)
+
+python scripts/refresh.py --dry-run   # offline: use tests/fixtures, no network
+python -m http.server 8765            # preview: open /web/calendar.html on this port
+```
+
+End users subscribe instead — no install, no account, auto-updating:
+
+```text
+webcal://vodkadav.github.io/calendarInport/ics/all.ics          # every match
+webcal://vodkadav.github.io/calendarInport/ics/favourites.ics   # 11-team preset
+# or pick teams in the browser: https://vodkadav.github.io/calendarInport/
+```
+
 ## For maintainers
 
 ### Architecture
