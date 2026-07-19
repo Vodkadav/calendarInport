@@ -8,8 +8,10 @@ will log a WARNING and leave channels_da empty for that match — the user can
 add the missing mapping later.
 
 English spellings below are kept in sync with openfootball's exact strings
-(e.g. `Bosnia & Herzegovina` with `&`, `USA` not `United States`). Run
-`python scripts/team_names.py --check` to sanity-check coverage vs. live data.
+(e.g. `Bosnia & Herzegovina` with `&`, `USA` not `United States`). Coverage
+gaps surface at runtime: `refresh.py` logs a WARNING for any TV2 team name
+not present here (see the "Fixing a Danish team-name mismatch" section of
+the README).
 """
 
 # Keys are TV2's Danish team-name spellings; values are the English forms
